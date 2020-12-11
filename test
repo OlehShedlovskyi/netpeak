@@ -1,0 +1,39 @@
+import select
+
+from selenium import webdriver
+from selenium.webdriver.support.ui import Select
+driver = webdriver.Chrome(executable_path='C:\chromedriver\chromedriver.exe')
+
+driver.maximize_window()
+
+# Перейти по ссылке на главную страницу сайта Netpeak.
+driver.get("https://netpeak.ua/");
+
+# Перейдите на страницу "Работа в Netpeak", нажав на кнопку "Карьера".
+search_field = driver.find_element_by_xpath("//*[@id='main-menu']/ul/li[5]/a").click();
+# Перейти на страницу заполнения анкеты, нажав кнопку - "Я хочу работать в Netpeak".
+search_field = driver.find_element_by_css_selector("body > div.container.employees-groups > div > div > div.vac-block-border > div > a").click();
+
+#search_field = driver.find_element_by_css_selector("#upload").click()
+#search_field.send_keys('C:\netpeak.png');
+
+search_field = driver.find_element_by_id("inputName");
+search_field.send_keys("oleh");
+search_field = driver.find_element_by_id("inputLastname");
+search_field.send_keys("shedlovskyi");
+search_field = driver.find_element_by_id("inputEmail");
+search_field.send_keys("olehshedlovskyi@gmail.com");
+search_field = driver.find_element_by_id("inputPhone");
+search_field.send_keys("+380974055341");
+
+#search_field = driver.find_element_by_name('by').click();
+
+#search_field = driver.find_element_by_name("bm").click();
+
+#search_field = driver.find_element_by_name("bd").click();
+
+search_field = driver.find_element_by_id("submit").click();
+
+search_field = driver.find_element_by_css_selector("#main-menu > ul > li.blog > a").click();
+
+driver.quit()
